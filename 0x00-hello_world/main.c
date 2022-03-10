@@ -7,5 +7,6 @@
  */
 int main(void)
 {
+	printf("Hello from alx");
 	return (0);
 }
