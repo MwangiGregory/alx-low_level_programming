@@ -12,7 +12,6 @@
  */
 int main(void)
 {
-
 	char c;
 	int i;
 	long int l;
