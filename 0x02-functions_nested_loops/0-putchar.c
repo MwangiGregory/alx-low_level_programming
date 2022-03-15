@@ -1,5 +1,10 @@
 #include "main.h"
 
+/**
+ *main - prints '_putchar' followed by new line.
+ *
+ * Return: 1 On success, something else on failure.
+ */
 int main(void)
 {
 	_putchar('_');
