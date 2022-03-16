@@ -1,12 +1,13 @@
-/*
- *add - adds two integers
+/**
+ *add - Sums two integers
  *@a: integer
  *@b: integer
  *
- *return: sum of a and b
+ * Return: total sum
  */
-
 int add(int a, int b)
 {
-	return (a + b);
+	int sum = a + b;
+
+	return (sum);
 }
