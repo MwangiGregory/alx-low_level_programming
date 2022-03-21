@@ -1,10 +1,13 @@
 /**
- *void_swa - swaps the values of two integers
- *@c: extra variable used in swaping
+ *swap_int - swaps the values of two integers
+ *@a: pointer
+ *@b: pointer
  */
-void_swap_int(int *a, int *b)
+void swap_int(int *a, int *b)
 {
-	int c = *a;
-	a* = *b;
-	*b = c;
+	int A = *a;
+	int B = *b;
+
+	*a = B;
+	*b = A;
 }
