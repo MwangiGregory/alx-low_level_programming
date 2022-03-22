@@ -1,8 +1,6 @@
 /**
  * _strlen - returns the length of a string
- * @c: temporarily holds value of
- * current array element
- * @i: counter
+ * @s: address of first element of string array
  *
  * Return: length of string whose address is s
  */
