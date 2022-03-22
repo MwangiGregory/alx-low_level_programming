@@ -24,8 +24,13 @@ void puts_half(char *str)
 		n = (i - 1) / 2;
 		n++;
 	}
-	while (n <= i)
+	c = *str;
+	while (c)
 	{
+		if (c == '\0')
+		{
+			_putchar('e');
+		}
 		c = *(str + n);
 		_putchar(c);
 		n++;
