@@ -22,18 +22,16 @@ void puts_half(char *str)
 	else
 	{
 		n = (i - 1) / 2;
-		n++;
 	}
 	c = *str;
 	while (c)
 	{
-		if (c == '\0')
-		{
-			_putchar('e');
-		}
-		c = *(str + n);
-		_putchar(c);
 		n++;
+		c = *(str + n);
+		if (c)
+		{
+			_putchar(c);
+		}
 	}
 	_putchar('\n');
 }
