@@ -1,14 +1,15 @@
 #include "main.h"
 
 /**
- * puts_half - prints half the string
- * @str: address of first element in string array
+ * puts_half - prints half a string.
+ * @str: address of frist element in
+ * character array
  */
 void puts_half(char *str)
 {
-	int n = 0;
-	int i = 0;
 	char c = *str;
+	int i = 0;
+	int n = 0;
 
 	while (c)
 	{
@@ -22,16 +23,16 @@ void puts_half(char *str)
 	else
 	{
 		n = (i - 1) / 2;
-	}
-	c = *str;
-	while (c)
-	{
 		n++;
+	}
+	while (n < i)
+	{
 		c = *(str + n);
-		if (c)
+		if (c != '\0')
 		{
 			_putchar(c);
 		}
+		n++;
 	}
-	_putchar('\n');
+	printf("\n");
 }
