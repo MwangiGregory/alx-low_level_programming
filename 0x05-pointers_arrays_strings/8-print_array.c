@@ -11,24 +11,23 @@ void print_array(int *a, int n)
 {
 	int i = 0;
 
-	if (n >= 0)
+	if (n > 0)
 	{
-		while (i <= n)
+		while (i < n)
 		{
-			if (n == 0)
-			{
-				printf("\n");
-				break;
-			}
 			if (i == (n - 1))
 			{
 				printf("%d\n", *(a + i));
 			}
-			else 
+			else
 			{
 				printf("%d, ", *(a + i));
 			}
 			i++;
 		}
+	}
+	else
+	{
+		printf("\n");
 	}
 }
