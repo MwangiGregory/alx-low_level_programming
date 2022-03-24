@@ -3,7 +3,7 @@
  * @s1: address of first string
  * @s2: address of second string
  *
- * Return: 1 if s1 is longer, -1 if s2 is longer,
+ * Return: 15 if s1 is longer, -15 if s2 is longer,
  * 0 if s1 and s2 are equal.
  */
 int _strcmp(char *s1, char *s2)
@@ -29,11 +29,11 @@ int _strcmp(char *s1, char *s2)
 	}
 	else if (i > j)
 	{
-		return (1);
+		return (15);
 	}
 	else
 	{
-		return (-1);
+		return (-15);
 	}
 
 }
