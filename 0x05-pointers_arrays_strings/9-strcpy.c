@@ -20,5 +20,10 @@ char *_strcpy(char *dest, char *src)
 		i++;
 		c = *(src + i);
 	}
+	if (c == '\0')
+	{
+		*(dest + i) = *(src + i);
+	}
+	
 	return (dest);
 }
