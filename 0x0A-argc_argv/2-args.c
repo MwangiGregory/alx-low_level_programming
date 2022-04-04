@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - entry point
- * Prints all the arguments it receives including the 
+ * Prints all the arguments it receives including the
  * first one.
  * @argc: size of argv
  * @argv: array of pointers to strings
