@@ -54,12 +54,13 @@ char *_strcpy(char *dest, char *src)
  */
 char *_strdup(char *str)
 {
-	char *ch = malloc(_strlen(str) + 1);
+	char *ch; 
 
-	if ((*str) == '\0')
+	if (str == NULL)
 	{
 		return (NULL);
 	}
+	ch = malloc(_strlen(str) + 1);
 	if (ch == NULL)
 	{
 		return (NULL);
