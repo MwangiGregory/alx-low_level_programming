@@ -54,7 +54,7 @@ char *_strcpy(char *dest, char *src)
  */
 char *_strdup(char *str)
 {
-	char *ch; 
+	char *ch;
 
 	if (str == NULL)
 	{
