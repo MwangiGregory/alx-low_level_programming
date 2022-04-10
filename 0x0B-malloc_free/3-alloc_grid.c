@@ -32,7 +32,6 @@ int **alloc_grid(int width, int height)
 	int **matrix;
 	int *elements;
 	int w, h;
-	int *p;
 
 	if (width <= 0 || height <= 0)
 	{
