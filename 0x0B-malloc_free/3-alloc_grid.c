@@ -42,7 +42,6 @@ int **alloc_grid(int width, int height)
 	if (elements == NULL || matrix == NULL)
 	{
 		free(elements);
-		free(matrix);
 		return (NULL);
 	}
 	w = 0;
