@@ -12,18 +12,12 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *new_dog = malloc(sizeof(*new_dog));
-	char *nm = malloc(sizeof(*name));
-	char *ownr = malloc(sizeof(*owner));
-	
-	*ownr = *owner;
-	*nm = *name;
-
 	if (new_dog == NULL)
 	{
 		free(new_dog);
 		return (NULL);
 	}
-	init_dog(new_dog, nm, age, ownr);
+	init_dog(new_dog, name, age, owner);
 	return (new_dog);
 }
 /**
