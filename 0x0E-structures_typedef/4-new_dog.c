@@ -16,7 +16,10 @@ dog_t *new_dog(char *name, float age, char *owner)
 	char *ownr = owner;
 
 	if (new_dog == NULL)
+	{
+		free(new_dog);
 		return (NULL);
+	}
 	init_dog(new_dog, nm, age, ownr);
 	return (new_dog);
 }
