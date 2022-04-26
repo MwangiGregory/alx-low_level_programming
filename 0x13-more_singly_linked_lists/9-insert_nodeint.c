@@ -17,7 +17,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	len = listint_len(*head);
 	if (idx == 0)
 		return (add_nodeint(head, num));
-	else if (idx + 1 == len || idx > len)
+	else if (idx > len)
 		return (NULL);
 
 	current_node = *head;
