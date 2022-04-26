@@ -1,5 +1,4 @@
 #include "lists.h"
-
 /**
  * insert_nodeint_at_index - inserts a new node at a given position
  * @head: pointer to a pointer that points to a listint_t list
@@ -18,9 +17,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	len = listint_len(*head);
 	if (idx == 0)
 		return (add_nodeint(head, num));
-	else if (idx == len)
-		return (add_nodeint_end(head, num));
-	else if (idx > len)
+	else if (idx + 1 == len || idx > len)
 		return (NULL);
 
 	current_node = *head;
@@ -38,7 +35,6 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 
 	return (temp);
 }
-
 /**
  * listint_len - finds the number of elements in a linked listint_t list
  * @h: pointer to the next node
