@@ -14,13 +14,13 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	unsigned int len = 0;
 	const int num = n;
 
+	if (idx > len || head == NULL)
+		return (NULL);
 	len = listint_len(*head);
 	if (idx == 0)
 		return (add_nodeint(head, num));
 	else if (idx == len)
 		return (add_nodeint_end(head, num));
-	else if (idx > len || head == NULL)
-		return (NULL);
 
 	current_node = *head;
 
