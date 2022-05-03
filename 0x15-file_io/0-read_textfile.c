@@ -3,6 +3,21 @@
 #include <sys/stat.h>
 #include <sys/types.h>
 #include <unistd.h>
+/**
+ * _strlen_recursion - find the length of a string using recursion
+ * @s: pointer to a string
+ *
+ * Return: Always the length of string pointed to by s. Length excludes
+ * the EOF character
+ */
+int _strlen_recursion(char *s)
+{
+	if (!(s[0]))
+	{
+		return (0);
+	}
+	return (1 + _strlen_recursion(s + 1));
+}
 
 /**
  * read_textfile - reads a text file and prints it to the standard
@@ -28,8 +43,10 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	rbytes = read(fd, content, letters);
 	if (rbytes == -1)
 		return (0);
-	written = write(STDOUT_FILENO, content, letters);
-	if (written == -1 || wriiten < letters)
+	written = write(STDOUT_FILENO, content, _strlen_recursion(content));
+	if (written == -1)
+		return (0);
+	if (written < _strlen_recursion(content))
 		return (0);
 	content[written - 1] = '\0';
 	close(fd);
