@@ -69,7 +69,7 @@ int copy_to_file(char *src_file, char *dest_file, int *fd)
 	while (res_read)
 	{
 		res_read = read(fd_src, content, 1024);
-		res_write = write(fd_dest, content, 1024);
+		res_write = write(fd_dest, content, res_read);
 		/**
 		 * check if we have reached EOF by changing file offset.
 		 * if reached res_read will have value 0 and loop will
