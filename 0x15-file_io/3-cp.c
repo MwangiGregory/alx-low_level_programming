@@ -55,8 +55,9 @@ int main(int argc, char **argv)
  */
 int copy_to_file(char *src_file, char *dest_file, int *fd)
 {
-	int fd_src, fd_dest, res_read = 1, res_write, res;
+	int fd_src, fd_dest, res_read = 1, res_write, res, i = 0;
 	char content[1024] = {0};
+	(void)res_write;
 
 	if (src_file == NULL)
 		return (98);
@@ -69,15 +70,16 @@ int copy_to_file(char *src_file, char *dest_file, int *fd)
 	while (res_read)
 	{
 		res_read = read(fd_src, content, 1024);
+		if (res_read == -1)
+			return (98);
 		res_write = write(fd_dest, content, res_read);
-		/**
-		 * check if we have reached EOF by changing file offset.
-		 * if reached res_read will have value 0 and loop will
-		 * terminate. Otherwise res_read has no. of read bytes
-		 */
-		res_read = read(fd_src, content, 1024);
 		if (res_write == -1)
 			return (99);
+		while (i < 1024)
+		{
+			content[i] = '\0';
+			i++;
+		}
 	}
 	res = close(fd_src);
 	if (res == -1)
