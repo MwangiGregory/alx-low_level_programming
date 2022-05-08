@@ -50,7 +50,7 @@ int main(void)
 				_putchar(i + 48);
 				_putchar(j + 48);
 				if (num1 == 89)
-					_putchar('\n');
+					;
 				else
 				{
 					_putchar(',');
