@@ -53,8 +53,8 @@ int main(void)
 					;
 				else
 				{
-					_putchar(',');
-					_putchar(' ');
+					_putchar(44);
+					_putchar(32);
 				}
 			}
 		}
