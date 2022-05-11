@@ -13,10 +13,10 @@
 char *_strcpy(char *dest, char *src)
 {
 	int i;
-	
+
 	if (!dest || !src)
 		return (NULL);
-	for (i = 0; src[i]); i++)
+	for (i = 0; src[i]; i++)
 		dest[i] = src[i];
 	dest[i] = '\0';
 
