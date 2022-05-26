@@ -1,12 +1,6 @@
 #include <stdio.h>
+#include <limits.h>
 #include "main.h"
-
-int main(void)
-{
-	char *s = "greg++--";
-
-	_atoi(s);
-}
 
 /**
  * _pow - finds value of x raised to the power of y
@@ -38,11 +32,11 @@ int _pow(int x, int y)
  */
 int convert_to_int(char *str)
 {
-	int i, j, res, place_val;
+	int i, j, res = 0, place_val;
 
 	for (i = 0; str[i]; i++)
 	{
-		if (str[i] <= '0' || str[i] >= '9')
+		if (str[i] < '0' || str[i] > '9')
 			break;
 	}
 	/*sets i to be as long as digit string*/
@@ -50,6 +44,9 @@ int convert_to_int(char *str)
 	place_val = i;
 	for (j = 0; j <= i; j++, place_val--)
 	{
+		/*check for integer overflow*/
+		if (((str[j] - '0') * _pow(10, place_val)) > (INT_MAX - res))
+			return (0);
 		res += ((str[j] - '0') * _pow(10, place_val));
 	}
 	return (res);
@@ -62,7 +59,7 @@ int convert_to_int(char *str)
  */
 int _atoi(char *s)
 {
-	int neg_count, pos_count, i, res;
+	int neg_count = 0, i, res = 0;
 	char *num_ptr = s;
 
 	/*count signs and find 1st digit*/
@@ -70,14 +67,17 @@ int _atoi(char *s)
 	{
 		if (s[i] == '-')
 			neg_count++;
-		else if (s[i] == '+')
-			pos_count++;
 		else if (s[i] >= '0' && s[i] <= '9')
 			break;
 	}
+
 	/*point to 1st digit*/
 	num_ptr += i;
 	res = convert_to_int(num_ptr);
-	printf("%d\n", res);
-	return 0;
+	if (neg_count % 2 == 0)
+		return (res);
+	else
+		return (res * -1);
+
+	return (res);
 }
