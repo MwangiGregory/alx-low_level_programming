@@ -57,7 +57,7 @@ int convert_to_int(char *str, int neg_count)
 	{
 		for (j = 0; j <= i; j++, place_val--)
 		{
-			if (-1 * ((str[j] - '0') * _pow(10, place_val)) <= (INT_MIN - res))
+			if (-1 * ((str[j] - '0') * _pow(10, place_val)) < (INT_MIN - res))
 				return (0);
 			res += (-1) * ((str[j] - '0') * _pow(10, place_val));
 		}
