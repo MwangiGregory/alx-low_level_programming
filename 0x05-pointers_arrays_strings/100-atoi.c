@@ -30,7 +30,7 @@ int _pow(int x, int y)
  * @str: pointer to string containing digits
  * Return: integer
  */
-int convert_to_int(char *str)
+int convert_to_int(char *str, int neg_count)
 {
 	int i, j, res = 0, place_val;
 
@@ -42,17 +42,29 @@ int convert_to_int(char *str)
 	/*sets i to be as long as digit string*/
 	--i;
 	place_val = i;
-	for (j = 0; j <= i; j++, place_val--)
+
+	if (neg_count % 2 == 0)
 	{
-		/*check for integer overflow*/
-		if (((str[j] - '0') * _pow(10, place_val)) > (INT_MAX - res))
-			return (0);
-		res += ((str[j] - '0') * _pow(10, place_val));
+		for (j = 0; j <= i; j++, place_val--)
+		{
+			if (((str[j] - '0') * _pow(10, place_val)) > (INT_MAX - res))
+				return (0);
+			res += ((str[j] - '0') * _pow(10, place_val));
+		}
+	}	
+	else
+	{
+		for (j = 0; j <= i; j++, place_val--)
+		{
+			if (-1 * ((str[j] - '0') * _pow(10, place_val)) <= (INT_MIN - res))
+				return (0);
+			res += (-1) * ((str[j] - '0') * _pow(10, place_val));
+		}
 	}
 	return (res);
 }
 
-/*
+/**
  * _atoi - wrapper function for convert_to_int
  * @s: pointer to a string
  * Return: Integer contained in string
@@ -73,11 +85,6 @@ int _atoi(char *s)
 
 	/*point to 1st digit*/
 	num_ptr += i;
-	res = convert_to_int(num_ptr);
-	if (neg_count % 2 == 0)
-		return (res);
-	else
-		return (res * -1);
-
+	res = convert_to_int(num_ptr, neg_count);
 	return (res);
 }
