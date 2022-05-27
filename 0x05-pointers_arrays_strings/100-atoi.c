@@ -28,6 +28,7 @@ int _pow(int x, int y)
 /**
  * convert_to_int - converts a digit char into an int
  * @str: pointer to string containing digits
+ * @neg_count: number of -ve signs
  * Return: integer
  */
 int convert_to_int(char *str, int neg_count)
@@ -51,7 +52,7 @@ int convert_to_int(char *str, int neg_count)
 				return (0);
 			res += ((str[j] - '0') * _pow(10, place_val));
 		}
-	}	
+	}
 	else
 	{
 		for (j = 0; j <= i; j++, place_val--)
