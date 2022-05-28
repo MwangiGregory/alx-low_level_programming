@@ -8,16 +8,20 @@
  */
 int _strcmp(char *s1, char *s2)
 {
-	char *str1 = s1, *str2 = s2;
+	char *p1 = s1, *p2 = s2;
+	unsigned char c1 = *p1;
+	unsigned char c2 = *p2;
 
-	if (!str1 || !str2)
+	if (!p1 || !p2)
 		return (0);
-	while (*str1 == *str2)
+	while (c1 == c2)
 	{
-		if (*str1 == '\0')
+		if (c1 == '\0')
 			return (0);
-		str1++;
-		str2++;
+		p1++;
+		p2++;
+		c1 = *p1;
+		c2 = *p2;
 	}
-	return (*str1 > *str2 ? 15 : -15);
+	return (c1 - c2);
 }
