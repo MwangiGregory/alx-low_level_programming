@@ -15,16 +15,16 @@ int main(void)
 	{
 		for (j = n; j <= 9; j++)
 		{
-			_putchar(i + 48);
-			_putchar(j + 48);
+			putchar(i + 48);
+			putchar(j + 48);
 
 			if (i == 8 && j == 9)
 			{
-				_putchar('\n');
+				putchar('\n');
 				break;
 			}
-			_putchar(',');
-			_putchar(' ');
+			putchar(',');
+			putchar(' ');
 		}
 	}
 	return (0);
