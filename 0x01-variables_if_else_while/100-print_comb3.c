@@ -31,10 +31,7 @@ int main(void)
 			_putchar(j + 48);
 
 			if (i == 8 && j == 9)
-			{
-				_putchar('\n');
 				break;
-			}
 			_putchar(',');
 			_putchar(' ');
 		}
