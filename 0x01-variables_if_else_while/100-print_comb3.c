@@ -20,43 +20,23 @@ int _putchar(int c)
  */
 int main(void)
 {
-	int i, j, num1, num2, index, dont_print;
-	int array[91] = {0};
+	int i, j, n;
 
-	for (i = 0; i <= 9; i++)
+	n = 1;
+	for (i = 0; i < 9; i++, n++)
 	{
-		for (j = 0; j <= 9; j++)
+		for (j = n; j <= 9; j++)
 		{
-			index = 0;
-			if (i == j)
-				continue;
-			num1 = (i * 10) + j;
-			dont_print = 1;
-			/*
-			 * initialize 1st elem with random value to enable loop
-			 * to run
-			 */
-			array[0] = 234;
-			while (array[index])
+			_putchar(i + 48);
+			_putchar(j + 48);
+
+			if (i == 8 && j == 9)
 			{
-				if (array[index] == num1)
-					dont_print = 0;
-				index++;
+				_putchar('\n');
+				break;
 			}
-			num2 = (j * 10) + i;
-			array[index] = num2;
-			if (dont_print)
-			{
-				_putchar(i + 48);
-				_putchar(j + 48);
-				if (num1 == 89)
-					;
-				else
-				{
-					_putchar(44);
-					_putchar(32);
-				}
-			}
+			_putchar(',');
+			_putchar(' ');
 		}
 	}
 	return (0);
