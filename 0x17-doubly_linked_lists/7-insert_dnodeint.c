@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include "lists.h"
 #include <stddef.h>
 #include <stdlib.h>
@@ -18,9 +19,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 	if (idx == 0)
 		return (add_dnodeint(h, n));
 	current_node = current_node->next;
-	i++;
 	while (current_node)
 	{
+		i++;
 		if (i == idx)
 		{
 			new_node = malloc(1 * sizeof(dlistint_t));
@@ -34,7 +35,6 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 			return (new_node);
 		}
 		current_node = current_node->next;
-		i++;
 	}
 
 	if (idx - i == 1)
