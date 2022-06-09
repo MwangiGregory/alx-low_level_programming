@@ -11,12 +11,12 @@
  */
 int delete_last_node(dlistint_t *last_node)
 {
-        int status = -1;
+	int status = -1;
 
-        last_node->prev->next = NULL;
-        free(last_node);
-        status = 1;
-        return (status);
+	last_node->prev->next = NULL;
+	free(last_node);
+	status = 1;
+	return (status);
 }
 
 /**
