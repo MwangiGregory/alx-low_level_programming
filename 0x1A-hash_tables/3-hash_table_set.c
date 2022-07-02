@@ -14,16 +14,19 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 {
 	unsigned long int index = 0;
 	hash_node_t *head = NULL;
+	int FAILED = 0, SUCCESS = 1;
 
+	if (!head)
+		return (FAILED);
 	index = key_index((const unsigned char *)key, ht->size);
 	head = malloc(1 * sizeof(hash_node_t));
 	if (!head)
-		return (0);
+		return (FAILED);
 	if (!key || *key == '\0')
-		return (0);
+		return (FAILED);
 	head->key = strdup(key);
 	head->value = strdup(value);
 	head->next = ht->array[index];
 	ht->array[index] = head;
-	return (1);
+	return (SUCCESS);
 }
