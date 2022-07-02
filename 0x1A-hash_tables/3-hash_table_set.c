@@ -16,7 +16,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *head = NULL;
 	int FAILED = 0, SUCCESS = 1;
 
-	if (!head)
+	if (!ht)
 		return (FAILED);
 	index = key_index((const unsigned char *)key, ht->size);
 	head = malloc(1 * sizeof(hash_node_t));
