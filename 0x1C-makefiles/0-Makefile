@@ -1,0 +1,10 @@
+OBJECT_FILES := main.o school.o
+
+all: school
+
+school: $(OBJECT_FILES)
+	$(CC) $(OBJECT_FILES) -o $@
+
+%.o: %.c %.h
+	$(CC) $<
+
