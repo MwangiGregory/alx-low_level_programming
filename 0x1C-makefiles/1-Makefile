@@ -1,8 +1,8 @@
-CC := gcc
-SRC := main.c school.c m.h
+CC = gcc
+SRC = main.c school.c m.h
+.PHONY = all
 
 all: school
 
 school:
 	$(CC) $(SRC) -o $@
-
